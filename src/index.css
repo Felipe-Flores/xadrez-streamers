@@ -1,0 +1,165 @@
+:root {
+  /* Design system: docs/design-home/DESIGN.md */
+  --surface: #fbf8ff;
+  --surface-dim: #dad9e3;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #f4f2fd;
+  --surface-container: #eeedf7;
+  --surface-container-high: #e8e7f1;
+  --surface-container-highest: #e3e1ec;
+  --surface-variant: #e3e1ec;
+  --on-surface: #1a1b22;
+  --on-surface-variant: #4b4455;
+  --outline: #7c7387;
+  --outline-variant: #cdc2d8;
+  --primary: #7721e5;
+  --on-primary: #ffffff;
+  --primary-container: #9146ff;
+  --on-primary-container: #fffcff;
+  --secondary: #5f5e61;
+  --on-secondary: #ffffff;
+  --secondary-container: #e4e1e6;
+  --on-secondary-container: #656467;
+  --error: #ba1a1a;
+  --on-error: #ffffff;
+  --error-container: #ffdad6;
+  --on-error-container: #93000a;
+  --status-online: #e53935;
+  --status-offline: #000000;
+
+  /* Tipografia */
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --display-size: 48px;
+  --display-weight: 700;
+  --display-line: 56px;
+  --display-letter: -0.02em;
+  --headline-lg-size: 32px;
+  --headline-lg-weight: 600;
+  --headline-lg-line: 40px;
+  --headline-lg-letter: -0.01em;
+  --headline-md-size: 20px;
+  --headline-md-weight: 600;
+  --headline-md-line: 28px;
+  --body-lg-size: 18px;
+  --body-lg-weight: 400;
+  --body-lg-line: 28px;
+  --body-md-size: 16px;
+  --body-md-weight: 400;
+  --body-md-line: 24px;
+  --body-sm-size: 14px;
+  --body-sm-weight: 400;
+  --body-sm-line: 20px;
+  --label-md-size: 14px;
+  --label-md-weight: 500;
+  --label-md-line: 16px;
+  --label-md-letter: 0.01em;
+  --label-sm-size: 12px;
+  --label-sm-weight: 600;
+  --label-sm-line: 16px;
+
+  /* Raios */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* Espaçamento */
+  --container-max: 1280px;
+  --gutter: 1.5rem;
+  --stack-sm: 0.5rem;
+  --stack-md: 1rem;
+  --stack-lg: 2rem;
+  --section-padding: 4rem;
+  --margin-mobile: 1rem;
+
+  /* Elevação */
+  --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 10px 15px -3px rgba(0, 0, 0, 0.03);
+
+  font-family: var(--font-family);
+  color: var(--on-surface);
+  background: var(--surface);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color-scheme: light;
+}
+
+/* Tema dark inspirado no Dracula (https://draculatheme.com) */
+:root[data-theme='dracula'] {
+  --surface: #282a36;
+  --surface-dim: #21222c;
+  --surface-container-lowest: #21222c;
+  --surface-container-low: #282a36;
+  --surface-container: #343746;
+  --surface-container-high: #3d404e;
+  --surface-container-highest: #44475a;
+  --surface-variant: #44475a;
+  --on-surface: #f8f8f2;
+  --on-surface-variant: #a4abbf;
+  --outline: #6272a4;
+  --outline-variant: #44475a;
+  --primary: #bd93f9;
+  --on-primary: #282a36;
+  --primary-container: #bd93f9;
+  --on-primary-container: #282a36;
+  --secondary: #98a1b8;
+  --on-secondary: #282a36;
+  --secondary-container: #44475a;
+  --on-secondary-container: #f8f8f2;
+  --error: #ff5555;
+  --on-error: #282a36;
+  --error-container: #4a2a2e;
+  --on-error-container: #ffb3b3;
+  --status-online: #ff5555;
+  --status-offline: #f8f8f2;
+  --shadow-soft:
+    0 4px 6px -1px rgba(0, 0, 0, 0.4),
+    0 10px 15px -3px rgba(0, 0, 0, 0.3);
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--surface-container-low);
+  color: var(--on-surface);
+  font-size: var(--body-md-size);
+  font-weight: var(--body-md-weight);
+  line-height: var(--body-md-line);
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
