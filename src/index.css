@@ -25,7 +25,7 @@
   --error-container: #ffdad6;
   --on-error-container: #93000a;
   --status-online: #e53935;
-  --status-offline: #000000;
+  --status-offline: #d4d4d8;
 
   /* Tipografia */
   --font-family: 'Inter', system-ui, -apple-system, sans-serif;

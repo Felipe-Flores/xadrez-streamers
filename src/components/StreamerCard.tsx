@@ -9,17 +9,17 @@ function StreamerCard({ streamer }: StreamerCardProps) {
 
   return (
     <article className="streamer-card">
-      <span
-        className={`streamer-card__status ${
-          streamer.is_live
-            ? 'streamer-card__status--online'
-            : 'streamer-card__status--offline'
-        }`}
-        role="img"
-        aria-label={streamer.is_live ? 'Online' : 'Offline'}
-        title={streamer.is_live ? 'Online' : 'Offline'}
-      />
       <div className="streamer-card__avatar-wrap">
+        <span
+          className={`streamer-card__status ${
+            streamer.is_live
+              ? 'streamer-card__status--online'
+              : 'streamer-card__status--offline'
+          }`}
+          role="img"
+          aria-label={streamer.is_live ? 'Online' : 'Offline'}
+          title={streamer.is_live ? 'Online' : 'Offline'}
+        />
         {streamer.avatar ? (
           <img
             className="streamer-card__avatar"
