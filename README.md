@@ -1,32 +1,59 @@
-# React + TypeScript + Vite
+# Xadrez Streamers
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Página única que lista os streamers de xadrez do Chess.com, mostrando quem está ao vivo, com busca, filtros e ordenação.
 
-Currently, two official plugins are available:
+## Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Listagem de streamers**: consume a API pública do Chess.com (`https://api.chess.com/pub/streamers`) exibindo avatar, username e link para a Twitch
+- **Status online/offline**: bolinha no canto superior direito do card (vermelha = online, preta = offline), baseada no campo `is_live` da própria API
+- **Busca**: filtra por username em tempo real, case-insensitive
+- **Filtro por status**: Todos / Online / Offline
+- **Ordenação**: alterna entre online primeiro (padrão) e offline primeiro
+- **Estados da UI**: skeleton de carregamento, mensagem de erro com "Tentar novamente" e aviso de lista vazia
+- **Atualização automática**: refetch a cada 20 minutos + botão de refresh manual
+- **Tema claro/escuro**: alternador (sol/lua) no header com tema dark "Dracula" (`data-theme` + CSS variables), persistido no `localStorage`
+- **Fallback de avatar**: placeholder circular com a inicial do username quando não há imagem
 
-## React Compiler
+## Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19 + TypeScript + Vite
+- Lint: `oxlint`
+- Sem bibliotecas de UI externas (estilo via CSS seguindo o design system de `docs/design-home/`)
+- Design: fonte Inter, cards brancos `rounded-2xl` com soft shadow, fundo `#f4f4f5`, primária roxa `#9146ff`
 
-## Expanding the Oxlint configuration
+## Estrutura
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```
+src/
+├── api/            # fetch tipado da API do Chess.com
+├── components/     # Header, SearchBar, StatusFilter, SortControl, StreamerCard/Grid, etc.
+├── hooks/          # useTheme (claro/dracula + localStorage)
+├── types/          # Streamer, StreamersResponse, StatusFilterOption, SortOrder
+└── utils/          # filterStreamers (busca + filtro + ordenação)
+docs/
+├── brain-dump.md   # anotações iniciais
+├── PRD.md          # requisitos e status de implementação
+└── design-home/    # design system (DESIGN.md, code.html, screen.png)
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Como rodar
+
+```bash
+npm install    # instalar dependências
+npm run dev    # servidor de desenvolvimento
+npm run build  # build de produção (tsc -b && vite build)
+npm run lint   # checagem com oxlint
+npm run preview # pré-visualizar o build
+```
+
+## Decisões
+
+- Status online/offline vem de `is_live` da própria API do Chess.com (sem Twitch API/client ID)
+- `twitch_url` vazio/ausente é tratado como `null` (botão "Ver na Twitch" fica desabilitado/oculto)
+- Link da Twitch abre em nova aba (`target="_blank"`)
+- Atualização automática dos dados a cada 20 minutos
+
+## Documentação
+
+- [PRD](docs/PRD.md) — requisitos e checklist de implementação
+- [Design](docs/design-home/DESIGN.md) — design system de referência
