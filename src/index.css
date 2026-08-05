@@ -12,9 +12,9 @@
   --on-surface-variant: #4b4455;
   --outline: #7c7387;
   --outline-variant: #cdc2d8;
-  --primary: #7721e5;
+  --primary: #2e97b7;
   --on-primary: #ffffff;
-  --primary-container: #9146ff;
+  --primary-container: #2e97b7;
   --on-primary-container: #fffcff;
   --secondary: #5f5e61;
   --on-secondary: #ffffff;
@@ -102,9 +102,9 @@
   --on-surface-variant: #a4abbf;
   --outline: #6272a4;
   --outline-variant: #44475a;
-  --primary: #bd93f9;
-  --on-primary: #282a36;
-  --primary-container: #bd93f9;
+  --primary: #2e97b7;
+  --on-primary: #ffffff;
+  --primary-container: #2e97b7;
   --on-primary-container: #282a36;
   --secondary: #98a1b8;
   --on-secondary: #282a36;

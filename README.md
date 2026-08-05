@@ -19,7 +19,7 @@ Página única que lista os streamers de xadrez do Chess.com, mostrando quem est
 - React 19 + TypeScript + Vite
 - Lint: `oxlint`
 - Sem bibliotecas de UI externas (estilo via CSS seguindo o design system de `docs/design-home/`)
-- Design: fonte Inter, cards brancos `rounded-2xl` com soft shadow, fundo `#f4f4f5`, primária roxa `#9146ff`
+- Design: fonte Inter, cards brancos `rounded-2xl` com soft shadow, fundo `#f4f4f5`, primária `#2e97b7`
 
 ## Estrutura
 
